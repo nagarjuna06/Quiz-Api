@@ -42,7 +42,7 @@ const haveApiKey = (request, response, next) => {
 }
 
 //check origin
-const origins = ['https://nagarjuna06.github.io', 'http://localhost:3000']
+const origins = ['https://nagarjuna-quiz-app.netlify.app']
 const isThisOrigin = (request, response, next) => {
     const { origin } = request.headers;
     if (origins.indexOf(origin) !== -1) {
