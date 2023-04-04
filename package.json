@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^5.1.0",
+    "mongoose": "^7.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "quiz-api",
+  "version": "1.0.0",
+  "description": "quiz api to get questions and answers",
+  "main": "server.js",
+  "author": "Nagarjuna Chenna",
+  "license": "ISC"
+}
