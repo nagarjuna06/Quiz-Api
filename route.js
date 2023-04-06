@@ -45,21 +45,22 @@ const haveApiKey = (request, response, next) => {
 const origins = ['https://nagarjuna-quiz-app.netlify.app']
 const isThisOrigin = (request, response, next) => {
     const { origin } = request.headers;
-    if (origins.indexOf(origin) !== -1) {
-        next()
-    }
-    else {
-        response.status(400)
-        response.send({ msg: " This Api has Restricted by Owner!" })
-    }
+    // if (origins.indexOf(origin) !== -1) {
+    //     next()
+    // }
+    // else {
+    //     response.status(400)
+    //     response.send({ msg: " This Api has Restricted by Owner!" })
+    // }
+    next();
 }
 
-route.get('/', haveApiKey, isThisOrigin, quizDetails);
+route.get('/', quizDetails);
 
-route.get('/:collectionName/', haveApiKey, isThisOrigin, generateModel, getAllQuestions);
+route.get('/:collectionName/', haveApiKey, generateModel, getAllQuestions);
 
-route.get('/:collectionName/:questionId/answer', haveApiKey, isThisOrigin, generateModel, getAnswer)
+route.get('/:collectionName/:questionId/answer', haveApiKey, generateModel, getAnswer)
 
-route.post('/:collectionName/add-question', haveApiKey, isThisOrigin, generateModel, addQuestion);
+route.post('/:collectionName/add-question', haveApiKey, generateModel, addQuestion);
 
-module.exports = { isThisOrigin, haveApiKey, route }
+module.exports = { haveApiKey, route }

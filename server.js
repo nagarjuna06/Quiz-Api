@@ -10,8 +10,8 @@ const port = process.env.PORT || 5000;
 mongoose.connect(process.env.DB_URL).then(() => console.log("DB Connected!")).catch(err => console.log(err))
 app.listen(port, () => console.log('Server is running! at port  ' + port))
 
-app.get('/', quizRoute.haveApiKey, quizRoute.isThisOrigin, async (req, res) => {
-    res.send("welcome quiz api")
-})
+app.get('/', (req, res) => {
+    res.send("<h1>welcome quiz api</h1>")
+});
 
 app.use('/quiz', quizRoute.route)
